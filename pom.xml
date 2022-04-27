@@ -14,7 +14,7 @@
     <name>CST323Activities</name>
     <description>CST323Activities</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <!--<dependency>
