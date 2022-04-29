@@ -5,12 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
+public class SearchPetsController {
 
-    @GetMapping("/")
-    public String home(Model model)
+    @GetMapping("/searchpets")
+    public String searchPets(Model model)
     {
-        model.addAttribute("title", "CST-323 Activities - Home");
-        return "index";
+        model.addAttribute("title", "CST-323 Activity - Search");
+        return "search-pets";
     }
 }
