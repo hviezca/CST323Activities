@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'CST323Activities'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C731E56E287F472DA34D8CD0A5C60145 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3378F87F100A4B8D8F952C17D2DBEFB1 }}
           package: '*.jar'
