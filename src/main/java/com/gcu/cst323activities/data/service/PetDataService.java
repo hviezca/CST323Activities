@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class PetDataService implements DataAccessInterface<PetEntity> {
 
@@ -14,13 +16,13 @@ public class PetDataService implements DataAccessInterface<PetEntity> {
 
     @Override
     public List<PetEntity> findAll() {
-
         return (List<PetEntity>) repository.findAll();
     }
 
     @Override
     public PetEntity findById(int id) {
-        return null;
+        Optional<PetEntity> entity = repository.findById((long) id);
+        return entity.get();
     }
 
     @Override
@@ -31,12 +33,16 @@ public class PetDataService implements DataAccessInterface<PetEntity> {
     }
 
     @Override
-    public boolean update(PetEntity petModel) {
-        return false;
+    public boolean update(PetEntity entity) {
+
+        repository.save(entity);
+        return true;
     }
 
     @Override
-    public boolean delete(PetEntity petModel) {
-        return false;
+    public boolean delete(PetEntity entity)
+    {
+        repository.delete(entity);
+        return true;
     }
 }
