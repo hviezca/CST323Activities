@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{common/include :: include}">
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<div th:insert="~{common/header :: header}"></div>
+<div class="container-fluid">
+    <div class="title text-center my-5">
+        <span class="fs-1 mx-auto">Add Pet</span>
+    </div>
+    <div class="container col-sm-4">
+        <div class="card mx-auto">
+            <div class="card-header text-center">
+                Add Pet
+            </div>
+            <div class="card-body">
+                <form th:action="@{/addPetSubmit}" th:object="${pet}" method="POST">
+
+                    <!-- Insert th:field for pet name -->
+                    <div class="form-row my-3">
+                        <div class="col">
+                            <input th:class="form-control" name="petName" id="petName" type="text" placeholder="Pet Name"
+                                   th:field="*{pet_name}" required>
+                        </div>
+                    </div>
+
+                    <!-- Insert th:field for pet species -->
+                    <div class="form-row my-3">
+                        <div class="col">
+                            <input class="form-control" name="petSpecies" id="petSpecies" type="text" placeholder="Pet Species"
+                                   th:field="*{pet_species}" required>
+                        </div>
+                    </div>
+
+                    <!-- Insert th:if and th:error for  error catching if required -->
+                    <div class="form-row my-3">
+                        <div class="col">
+                            <h6 style="color: red; text-align:left" th:if="${param.error}">Invalid Name/Species Combo</h6>
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-dark btn-block btn-lg my-4">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="~{common/footer :: footer}"></div>
+</body>
+</html>
