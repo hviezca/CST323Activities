@@ -8,15 +8,22 @@
 <div th:insert="~{common/header :: header}"></div>
 <div class="container-fluid">
   <div class="title text-center my-5">
-    <span class="fs-1 mx-auto">Add Pet</span>
+    <span class="fs-1 mx-auto">Update Pet</span>
   </div>
   <div class="container col-sm-4">
     <div class="card mx-auto">
-      <div class="card-header text-center">
-        Add Pet
-      </div>
+      <!--<div class="card-header text-center">
+        Update Pet
+      </div>-->
       <div class="card-body">
-        <form th:action="@{/addPetSubmit}" th:object="${pet}" method="POST">
+        <form th:action="@{/updatePetSubmit}" th:object="${pet}" method="POST">
+
+          <div class="form-row my-3">
+            <div class="col">
+              <input th:class="form-control" name="petId" id="petId" type="text" placeholder="Pet Id"
+                     th:field="*{id}" th:type="hidden">
+            </div>
+          </div>
 
           <!-- Insert th:field for pet name -->
           <div class="form-row my-3">
