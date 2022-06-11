@@ -4,13 +4,16 @@
     <logger name="com.gcu.cst323activities.controller" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.gcu.cst323activities.business" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.gcu.cst323activities.data.service" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 </configuration>
