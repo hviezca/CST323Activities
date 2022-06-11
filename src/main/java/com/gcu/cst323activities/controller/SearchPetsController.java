@@ -3,6 +3,8 @@ package com.gcu.cst323activities.controller;
 import com.gcu.cst323activities.business.PetBusinessService;
 import com.gcu.cst323activities.data.entity.PetEntity;
 import com.gcu.cst323activities.model.PetModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +19,19 @@ public class SearchPetsController {
     @Autowired
     private PetBusinessService service;
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @GetMapping("/searchpets")
     public String searchPets(Model model)
     {
-        ///////////////// TESTING
-        /*List<PetModel> pets = new ArrayList<>();
-        pets.add(new PetModel(1, "Sherlock", "Cat"));
-        pets.add(new PetModel(1, "Watson", "Cat"));
-        pets.add(new PetModel(1, "Meep-Meep", "Cat"));*/
-
+        logger.info("Entering SearchPetsController.searchPets()");
         List<PetModel> pets = service.getAllPets();
-        model.addAttribute("title", "CST-323 Activity - Search");
-        model.addAttribute("pets", pets);
+        if(!pets.isEmpty())
+        {
+            model.addAttribute("title", "CST-323 Activity - Search");
+            model.addAttribute("pets", pets);
+        }
+
         return "search-pets";
     }
 }
